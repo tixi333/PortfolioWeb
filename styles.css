@@ -1,5 +1,10 @@
+:root{
+    --margen: 20px;
+    --fuente: 'Yseabeau Infant', sans-serif
+}
 body {
-    margin: 0
+    margin: 0;
+    font-family: var(--fuente);
 }
 nav {
     width: 100%;
@@ -24,9 +29,18 @@ nav {
     background-color: transparent !important;
     border: none !important;
 }
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white;
+  background-color: transparent;
+}
 
 .card{
-    border: none
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(16, 23, 56, 0.25);
+    color: white;
 }
 
 .contactButton {
@@ -66,35 +80,79 @@ nav {
 
 .contactButton:hover {
     transform: translate(-0.05em, -0.05em);
-    box-shadow: 0.15em 0.15em #5566c2;
+    box-shadow: 0.15em 0.15em #ffffff;
 }
 
 .contactButton:active {
     transform: translate(0.05em, 0.05em);
-    box-shadow: 0.05em 0.05em #5566c2;
+    box-shadow: 0.05em 0.05em #f6f6f7;
+}
+.contactButton.animated-gradient,
+.contactButton.animated-gradient:visited {
+  color: #fff !important;
 }
 
-.social-links,.flex-center {
+.contactButton.animated-gradient svg {
+  color: #fff;
+}
+section {
+  margin-bottom: 20px;
+}
+
+.instagram-button {
+    width: 48px;
+    height: 48px;
+    background: #4e3671;
+
+    position: relative;
+    border: none;
+    border-radius: 4px;
+    color: #fafafa;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+
+    padding: 8px 24px 8px 8px;
+
+    font-weight: bold;
+    overflow: hidden;
+
+    transition: width 700ms;
 }
 
-.social-btn {
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-    font-family: 'Titillium Web', sans-serif;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-    background: white;
-    margin: 5px;
-    transition: 0.3s;
-    justify-content: center;
+.instagram-button:hover {
+    width: 176px;
 }
 
-.social-btn svg {
-    height: 24px;
-    width: 24px;
+/* Ícono */
+.instagram-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    fill: #fafafa;
+}
+
+/* @username */
+.instagram-username {
+    transform-origin: left;
+    
+    opacity: 0;
+    transform: scaleX(0);
+
+    border-left: 2px solid;
+    padding: 0 4px;
+
+    transition:
+        opacity 100ms,
+        transform 100ms;
+}
+
+.instagram-button:hover .instagram-username {
+    opacity: 1;
+    transform: scaleX(1);
+
+    transition-delay: 500ms;
+    transition-duration: 300ms;
 }
