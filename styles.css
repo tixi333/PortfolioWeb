@@ -1,0 +1,23 @@
+body {
+    margin: 0
+}
+nav {
+    width: 100%;
+    border: none
+}
+
+.container-fluid {
+    padding: 30px 40px;
+    background-color: transparent !important;
+}
+
+.scrollspy-example {
+    background-color: transparent !important;
+}
+
+.navbar {
+    --bs-tertiary-bg-rgb: 0, 0, 0;
+    background-color: transparent !important;
+    border: none !important;
+}
+
