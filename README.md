@@ -24,5 +24,4 @@ Portfolio personal creado para mostrar información sobre mí, mis proyectos y f
 PortfolioWeb/
 ├── index.html
 ├── styles.css
-├── grey-b.png
 └── README.md
