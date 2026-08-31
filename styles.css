@@ -1,15 +1,38 @@
+/* Colores compartidos*/
 :root{
     --margen: 20px;
-    --fuente: 'Yseabeau Infant', sans-serif
+    --fuente: 'Yseabeau Infant', sans-serif;
+    
+    --gradient1: #e8dff5;
+    --gradient2: #c9b6e4;
+    --gradient3: #f3d9e8;
+    --text: #000;
+    --hover_color: #9d5da1;
 }
+
+/* Estilos generales de la página */
 body {
     margin: 0;
+    min-height: 100vh;
     font-family: var(--fuente);
+    color: var(--text);
+    overflow-x: hidden;
 }
 nav {
     width: 100%;
     border: none
 }
+/* Contenedor de los enlaces de contacto */
+.contenedor-flex{
+    display: flex;                  
+    flex-direction: row;            
+    justify-content: flex-start;  
+    align-items: center;            
+    flex-wrap: wrap;                
+    gap: 20px;                      
+    min-height: 10vh;               
+}
+
 
 .main_section{
     margin-bottom: 40px;
@@ -24,28 +47,96 @@ nav {
     background-color: transparent !important;
 }
 
+/* Barra de navegación y enlaces */
 .navbar {
     --bs-tertiary-bg-rgb: 0, 0, 0;
     background-color: transparent !important;
     border: none !important;
+    gap: 0.75rem;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: white;
+  color: var(--text);
   background-color: transparent;
 }
 
+.navbar-brand,
+.nav-link {
+  color: var(--text) !important;
+}
+
+.theme-toggle-item {
+    display: flex;
+    align-items: center;
+}
+.nav-link:hover {
+  color: var(--hover_color) !important;
+}
+/* Interruptor de modo claro y oscuro */
+#darkmode {
+    position: absolute;
+    opacity: 0;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.theme-toggle i {
+    position: absolute;
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
+
+#darkmode:checked + .theme-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+}
+
+#darkmode:checked + .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+#darkmode:focus-visible + .theme-toggle {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+}
+
+/* Tarjetas de proyectos */
 .card{
     border: none;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgba(16, 23, 56, 0.25);
-    color: white;
+    background-color: rgba(16, 23, 56, 0.10);
+    color: var(--text);
+}
+
+.project-list {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.project-list .card {
+    flex: 1 1 18rem;
+    width: min(100%, 18rem) !important;
 }
 
 .contactButton {
-    background: #27294b;
-    color: white;
+    background: var(--gradient2);
+    color: var(--text);
     font-family: inherit;
     padding: 0.45em;
     padding-left: 1em;
@@ -73,7 +164,7 @@ nav {
     height: 2.2em;
     width: 2.2em;
     border-radius: 0.7em;
-    box-shadow: 0.1em 0.1em 0.6em 0.2em #1f2441;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #e1e2ea;
     right: 0.3em;
     transition: all 0.3s;
 }
@@ -89,25 +180,26 @@ nav {
 }
 .contactButton.animated-gradient,
 .contactButton.animated-gradient:visited {
-  color: #fff !important;
+  color: var(--text) !important;
 }
 
 .contactButton.animated-gradient svg {
-  color: #fff;
+  color: var(--text);
 }
 section {
   margin-bottom: 20px;
 }
 
+/* Botones de redes sociales y contacto */
 .instagram-button {
     width: 48px;
     height: 48px;
-    background: #4e3671;
+    background: var(--gradient2);
 
     position: relative;
     border: none;
     border-radius: 4px;
-    color: #fafafa;
+    color: var(--text);
 
     display: flex;
     align-items: center;
@@ -126,20 +218,23 @@ section {
     width: 176px;
 }
 
-/* Ícono */
 .instagram-icon {
     width: 32px;
     height: 32px;
+    font-size: 32px;
+    line-height: 1;
     flex-shrink: 0;
-    fill: #fafafa;
+    fill: var(--text);
+}
+.icono-personalizado {
+  color: var(--text);
 }
 
-/* @username */
 .instagram-username {
     transform-origin: left;
     
     opacity: 0;
-    transform: scaleX(0);
+    transform: scaleX(1);
 
     border-left: 2px solid;
     padding: 0 4px;
@@ -147,6 +242,8 @@ section {
     transition:
         opacity 100ms,
         transform 100ms;
+    
+    color: var(--text)
 }
 
 .instagram-button:hover .instagram-username {
@@ -156,3 +253,118 @@ section {
     transition-delay: 500ms;
     transition-duration: 300ms;
 }
+
+/* Fondo con degradado animado */
+.animated-gradient {
+    position: relative;
+    background: linear-gradient(
+        45deg,
+        var(--gradient1) 0%,
+        var(--gradient2) 50%,
+        var(--gradient3) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease alternate infinite;
+    color: var(--text);
+    text-align: left;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Variables que cambian cuando se activa el modo oscuro */
+body:has(#darkmode:checked) {
+    --gradient1: #7a18c5;
+    --gradient2: #45344e;
+    --gradient3: #473454;
+    --text: #fff;
+    --hover_color: #f69ae5;
+
+}
+
+/* Ajustes para tablet */
+@media (max-width: 991.98px) {
+    .container-fluid {
+        padding: 24px 28px;
+    }
+
+    .project-list .card {
+        flex-basis: calc(50% - 0.75rem);
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767.98px) {
+    .navbar {
+        padding: 1rem !important;
+        align-items: flex-start;
+    }
+
+    .navbar-brand {
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar .nav {
+        flex: 1;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem;
+    }
+
+    .container-fluid {
+        padding: 20px;
+    }
+
+    .scrollspy-example {
+        padding: 0 !important;
+    }
+}
+
+/* Ajustes para celular */
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+
+    .project-list {
+        gap: 1rem !important;
+    }
+
+    .project-list .card {
+        flex-basis: 100%;
+        width: 100% !important;
+        margin: 0;
+    }
+
+    .contenedor-flex {
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .instagram-button,
+    .instagram-button:hover {
+        width: 100%;
+    }
+
+    .instagram-username {
+        opacity: 1;
+        transform: scaleX(1);
+        transition: none;
+    }
+}
+
