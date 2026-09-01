@@ -24,4 +24,8 @@ Portfolio personal creado para mostrar información sobre mí, mis proyectos y f
 PortfolioWeb/
 ├── index.html
 ├── styles.css
+└── imgs
+    └── Music.png
+    └── pokedex.webp
+    └── Salame.png
 └── README.md

@@ -1,26 +1,47 @@
 /* Colores compartidos*/
 :root{
     --margen: 20px;
-    --fuente: 'Yseabeau Infant', sans-serif;
-    
+    --fuentebody: 'Ysabeau Infant', sans-serif;
+    --fuentetitle: 'Archivo Black', sans-serif;
+
     --gradient1: #e8dff5;
     --gradient2: #c9b6e4;
     --gradient3: #f3d9e8;
-    --text: #000;
+    --text: #382b1e;
     --hover_color: #9d5da1;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 /* Estilos generales de la página */
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: var(--fuente);
+    font-family: var(--fuentebody);
     color: var(--text);
     overflow-x: hidden;
+    padding-bottom: 35vh;
 }
+h1{
+    font-family: var(--fuentetitle);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 20px;
+    text-indent: 20px;
+}
+
 nav {
     width: 100%;
     border: none
+}
+section{
+    margin-bottom: 20px;
+    scroll-margin-top: 90px;
 }
 /* Contenedor de los enlaces de contacto */
 .contenedor-flex{
@@ -49,10 +70,12 @@ nav {
 
 /* Barra de navegación y enlaces */
 .navbar {
-    --bs-tertiary-bg-rgb: 0, 0, 0;
-    background-color: transparent !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--gradient1) !important;
+    backdrop-filter: blur(8px);
     border: none !important;
-    gap: 0.75rem;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -122,6 +145,24 @@ nav {
     margin-bottom: 20px;
     background-color: rgba(16, 23, 56, 0.10);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.card-body .contactButton {
+    margin-top: auto;
 }
 
 .project-list {
@@ -164,7 +205,7 @@ nav {
     height: 2.2em;
     width: 2.2em;
     border-radius: 0.7em;
-    box-shadow: 0.1em 0.1em 0.6em 0.2em #e1e2ea;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em var(--gradient1);
     right: 0.3em;
     transition: all 0.3s;
 }
@@ -186,10 +227,6 @@ nav {
 .contactButton.animated-gradient svg {
   color: var(--text);
 }
-section {
-  margin-bottom: 20px;
-}
-
 /* Botones de redes sociales y contacto */
 .instagram-button {
     width: 48px;
@@ -285,7 +322,7 @@ section {
 
 /* Variables que cambian cuando se activa el modo oscuro */
 body:has(#darkmode:checked) {
-    --gradient1: #7a18c5;
+    --gradient1: #240c36;
     --gradient2: #45344e;
     --gradient3: #473454;
     --text: #fff;
