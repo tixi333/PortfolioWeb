@@ -5,7 +5,7 @@
     --fuentetitle: 'Archivo Black', sans-serif;
 
     --gradient1: #e8dff5;
-    --gradient2: #c9b6e4;
+    --gradient2: #bda1e4;
     --gradient3: #f3d9e8;
     --text: #382b1e;
     --hover_color: #9d5da1;
@@ -175,6 +175,25 @@ section{
     width: min(100%, 18rem) !important;
 }
 
+.cv_button {
+    background: var(--gradient2);
+    color: var(--text);
+    font-family: inherit;
+    padding: 0.45em;
+    padding-left: 1em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3em;
+}
 .contactButton {
     background: var(--gradient2);
     color: var(--text);
@@ -321,9 +340,9 @@ section{
 
 /* Variables que cambian cuando se activa el modo oscuro */
 body:has(#darkmode:checked) {
-    --gradient1: #240c36;
-    --gradient2: #45344e;
-    --gradient3: #473454;
+    --gradient1: #5d5686;
+    --gradient2: #43316e;
+    --gradient3: #655072;
     --text: #fff;
     --hover_color: #f69ae5;
 
